@@ -1,11 +1,13 @@
 ﻿$(document).ready(function () {
+    var currentLangCode = 'ru';
 
     $('#calendar').fullCalendar({
         header: {
             left: 'prev,next today',
             center: 'title',
-            right: 'month,basicWeek,basicDay'
+            right: 'month,agendaWeek,agendaDay'
         },
+        lang: currentLangCode,
         defaultDate: '2015-12-12',
         editable: false,
         eventLimit: true, // allow "more" link when too many events

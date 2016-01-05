@@ -52,7 +52,7 @@ namespace VetApp.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             
-            if (!User.IsInRole("Admin")) 
+            if (!User.IsInRole("Admin") && currentUser.Person.ID != id) 
             {
                 return RedirectToAction("Details", new { id = currentUser.Person.ID });
             }
