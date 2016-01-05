@@ -43,5 +43,13 @@ namespace VetApp.Models
         public DbSet<Cover> Covers { get; set; }
         public DbSet<Examination> Examination { get; set; }
 
+        public DbSet<Vet> Vets { get; set; }
+        public DbSet<VetType> VetTypes { get; set; }
+        public DbSet<VetWorkTime> VetWorkTimes { get; set; }
+        public DbSet<WorkTime> WorkTimes { get; set; }
+
+        public DbSet<Visit> Visits { get; set; }
+        public DbSet<VisitType> VisitTypes { get; set; }
+
     }
 }
