@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using VetApp.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace VetApp.Controllers
 {
@@ -221,6 +222,27 @@ namespace VetApp.Controllers
         public ActionResult ChangePassword()
         {
             return View();
+        }
+
+        //
+        // GET: /Manage/ChangePassword
+        public ActionResult ChangeRole()
+        {
+            var userId = User.Identity.GetUserId();
+           
+            if (User.IsInRole("Admin"))
+            {
+                UserManager.RemoveFromRole(userId, "Admin");
+            }
+            else
+            {
+                UserManager.AddToRole(userId, "Admin");
+            }
+
+            db.SaveChanges();
+
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            return RedirectToAction("Index", "Home");
         }
 
         //

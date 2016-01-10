@@ -27,6 +27,21 @@
                 }
             ]
         </dd>
+        <dt>Права:</dt>
+        <dd>
+            @if (User.IsInRole("Admin"))
+            {
+               @:Администратор
+            }
+            else
+            {
+               @:Пользователь 
+            }
+            [
+                @Html.ActionLink("Смена роли", "ChangeRole")
+            ]
+        </dd>
+
         <dt>Пароль:</dt>
         <dd>
             [
