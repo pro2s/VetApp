@@ -72,3 +72,25 @@
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+<div>
+    <h4>Person pets:</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        @foreach (var item in Model.Pets)
+        {
+            <dt>
+                @Html.DisplayFor(modelItem => item.NickName)
+                
+            </dt>
+            <dd>
+                @Html.DisplayFor(modelItem => item.PetType.AnimalType.Name)
+                @Html.DisplayFor(modelItem => item.PetType.Description)
+            </dd>
+            <dd>
+                @Html.ActionLink("View", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            </dd>
+        }
+    </dl>
+</div>

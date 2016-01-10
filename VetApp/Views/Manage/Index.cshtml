@@ -15,6 +15,8 @@
             [
             @if (Model.Person != null)
             {
+                @Html.ActionLink("Смотреть", "Details", "People", new { id = Model.Person.ID }, null)
+                @: &nbsp;|&nbsp;
                 @Html.ActionLink("Изменить", "Edit", "People", new { id = Model.Person.ID },null)
                 @: &nbsp;|&nbsp;
                 @Html.ActionLink("Удалить", "Delete", "People", new { id = Model.Person.ID }, null)

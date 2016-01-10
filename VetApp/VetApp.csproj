@@ -196,12 +196,13 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Pet\AnimalTypesController.cs" />
     <Compile Include="Controllers\Api\VisitsController.cs" />
-    <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PeopleController.cs" />
-    <Compile Include="Controllers\PetsController.cs" />
+    <Compile Include="Controllers\Pet\PetsController.cs" />
+    <Compile Include="Controllers\Pet\PetTypesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -216,6 +217,10 @@
     <Compile Include="Migrations\201601052009397_vet.base.cs" />
     <Compile Include="Migrations\201601052009397_vet.base.Designer.cs">
       <DependentUpon>201601052009397_vet.base.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601101837084_vet.worktime.cs" />
+    <Compile Include="Migrations\201601101837084_vet.worktime.Designer.cs">
+      <DependentUpon>201601101837084_vet.worktime.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -395,10 +400,19 @@
     <Content Include="Views\Pets\Details.cshtml" />
     <Content Include="Views\Pets\Edit.cshtml" />
     <Content Include="Views\Pets\Index.cshtml" />
+    <Content Include="Views\AnimalTypes\Create.cshtml" />
+    <Content Include="Views\AnimalTypes\Delete.cshtml" />
+    <Content Include="Views\AnimalTypes\Details.cshtml" />
+    <Content Include="Views\AnimalTypes\Edit.cshtml" />
+    <Content Include="Views\AnimalTypes\Index.cshtml" />
+    <Content Include="Views\PetTypes\Create.cshtml" />
+    <Content Include="Views\PetTypes\Delete.cshtml" />
+    <Content Include="Views\PetTypes\Details.cshtml" />
+    <Content Include="Views\PetTypes\Edit.cshtml" />
+    <Content Include="Views\PetTypes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -415,6 +429,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601052009397_vet.base.resx">
       <DependentUpon>201601052009397_vet.base.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601101837084_vet.worktime.resx">
+      <DependentUpon>201601101837084_vet.worktime.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
