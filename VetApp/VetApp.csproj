@@ -203,8 +203,11 @@
     <Compile Include="Controllers\PeopleController.cs" />
     <Compile Include="Controllers\Pet\PetsController.cs" />
     <Compile Include="Controllers\Pet\PetTypesController.cs" />
+    <Compile Include="Controllers\VetWorkTimesController.cs" />
     <Compile Include="Controllers\Vet\VetsController.cs" />
     <Compile Include="Controllers\Vet\VetTypesController.cs" />
+    <Compile Include="Controllers\VisitTypesController.cs" />
+    <Compile Include="Controllers\WorkTimesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -223,6 +226,18 @@
     <Compile Include="Migrations\201601101837084_vet.worktime.cs" />
     <Compile Include="Migrations\201601101837084_vet.worktime.Designer.cs">
       <DependentUpon>201601101837084_vet.worktime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601122036054_change-worktime.cs" />
+    <Compile Include="Migrations\201601122036054_change-worktime.Designer.cs">
+      <DependentUpon>201601122036054_change-worktime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601122100007_vetworktime-vet.cs" />
+    <Compile Include="Migrations\201601122100007_vetworktime-vet.Designer.cs">
+      <DependentUpon>201601122100007_vetworktime-vet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601122121300_fk-vetworktime.cs" />
+    <Compile Include="Migrations\201601122121300_fk-vetworktime.Designer.cs">
+      <DependentUpon>201601122121300_fk-vetworktime.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -422,6 +437,23 @@
     <Content Include="Views\Vets\Details.cshtml" />
     <Content Include="Views\Vets\Edit.cshtml" />
     <Content Include="Views\Vets\Index.cshtml" />
+    <Content Include="Views\VisitTypes\Create.cshtml" />
+    <Content Include="Views\VisitTypes\Delete.cshtml" />
+    <Content Include="Views\VisitTypes\Details.cshtml" />
+    <Content Include="Views\VisitTypes\Edit.cshtml" />
+    <Content Include="Views\VisitTypes\Index.cshtml" />
+    <Content Include="Views\WorkTimes\Create.cshtml" />
+    <Content Include="Views\WorkTimes\Delete.cshtml" />
+    <Content Include="Views\WorkTimes\Details.cshtml" />
+    <Content Include="Views\WorkTimes\Edit.cshtml" />
+    <Content Include="Views\WorkTimes\Index.cshtml" />
+    <Content Include="Views\VetWorkTimes\Create.cshtml" />
+    <Content Include="Views\VetWorkTimes\Delete.cshtml" />
+    <Content Include="Views\VetWorkTimes\Details.cshtml" />
+    <Content Include="Views\VetWorkTimes\Edit.cshtml" />
+    <Content Include="Views\VetWorkTimes\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\WorkTimePart.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\WorkTime.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -444,6 +476,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601101837084_vet.worktime.resx">
       <DependentUpon>201601101837084_vet.worktime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601122036054_change-worktime.resx">
+      <DependentUpon>201601122036054_change-worktime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601122100007_vetworktime-vet.resx">
+      <DependentUpon>201601122100007_vetworktime-vet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601122121300_fk-vetworktime.resx">
+      <DependentUpon>201601122121300_fk-vetworktime.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,0 +1,42 @@
+﻿@model VetApp.Models.VetWorkTime
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>VetWorkTime</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Vet.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vet.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkTime.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkTime.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Day)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Day)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

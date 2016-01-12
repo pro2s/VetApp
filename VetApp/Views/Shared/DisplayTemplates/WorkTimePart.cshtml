@@ -1,0 +1,8 @@
+﻿@model int
+
+@{
+    string h = string.Format("{0:D2}", Model / 60);
+    string m = string.Format("{0:D2}", Model % 60);
+
+}
+@h:@m
