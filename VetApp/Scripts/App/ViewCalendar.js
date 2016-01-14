@@ -2,15 +2,30 @@
     var currentLangCode = 'ru';
 
     $('#calendar').fullCalendar({
+        defaultView: 'agendaWeek',
         header: {
             left: 'prev,next today',
             center: 'title',
-            right: 'month,agendaWeek,agendaDay'
+            right: 'agendaWeek,agendaDay,month',
+        
         },
         lang: currentLangCode,
         defaultDate: '2015-12-12',
+        slotDuration: '00:15:00',
         editable: false,
         eventLimit: true, // allow "more" link when too many events
+        dayClick: function(date, jsEvent, view) {
+
+            //alert('Clicked on: ' + date.format());
+
+            //alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+
+            //alert('Current view: ' + view.name);
+            $('#VisitDate').val(date.format());
+            // change the day's background color just for fun
+            
+
+        },
         events: [
             {
                 title: 'All Day Event',
@@ -70,3 +85,4 @@
     });
 
 });
+
