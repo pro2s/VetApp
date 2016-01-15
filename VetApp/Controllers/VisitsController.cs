@@ -46,24 +46,17 @@ namespace VetApp.Controllers
         }
 
         // GET: Visits/Create
-        public ActionResult Create(bool partial = false)
+        public ActionResult Create()
         {
             CreateViewBag();
             
             Visit model = new Visit();
             model.VisitDate = DateTime.Now;
 
-            if (partial)
-            {
-                return PartialView(model);
-            }
-            else
-            {
-                return View(model);
-            }
+            return View(model);
+
         }
-        
-        
+
         // POST: Visits/Create
         // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
         // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -87,6 +80,32 @@ namespace VetApp.Controllers
                 }
             }
 
+            CreateViewBag();
+            return View(visit);
+        }
+
+        public ActionResult CreateOnTop()
+        {
+            CreateViewBag();
+
+            Visit model = new Visit();
+            model.VisitDate = DateTime.Now;
+
+            return PartialView(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateOnTop([Bind(Include = "ID,VisitDate,Status,VisitTypeId,PetId,VetId,ExaminationId")] Visit visit)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Visits.Add(visit);
+                db.SaveChanges();
+                CreateViewBag();
+                return PartialView(visit);
+            }
+            ViewBag.Error = true;
             CreateViewBag();
             return View(visit);
         }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
@@ -14,12 +15,34 @@ namespace VetApp.Controllers.Api
 {
     public class VisitsController : ApiController
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
-
-        // GET: api/Visits
-        public IQueryable<Visit> GetVisits()
+        public class Event
         {
-            return db.Visits;
+            public int id;
+            public DateTime? start;
+            public DateTime? end;
+            public string title;
+        }
+
+        private ApplicationDbContext db; 
+        public VisitsController()
+        {
+            db = new ApplicationDbContext();
+            db.Configuration.ProxyCreationEnabled = false;
+        }
+        // GET: api/Visits
+        // id title start end 
+
+        public IQueryable<Event> GetVisits([FromUri]DateTime? start = null, [FromUri]DateTime? end = null)
+        {
+            var query = from v in db.Visits
+                        select new Event
+                        {
+                            id = v.ID,
+                            start = v.VisitDate,
+                            end = DbFunctions.AddMinutes(v.VisitDate, v.VisitType.Duration),
+                            title = v.VisitType.Name + " " + v.Pet.NickName, 
+                        };
+            return query;
         }
 
         // GET: api/Visits/5

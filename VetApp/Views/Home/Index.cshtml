@@ -1,11 +1,12 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Мяу-Гау";
 }
 @section css
 {
     <link href='@Url.Content("~/Content/fullcalendar.css")' rel='stylesheet' />
     <link href='@Url.Content("~/Content/fullcalendar.print.css")' rel='stylesheet' media='print' />
 }
+
 
 
 @section scripts
@@ -16,14 +17,17 @@
     <script type="text/javascript" src="@Url.Content("~/Scripts/App/ViewCalendar.js")"></script>
 }
 
+
+
+
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-10">
         <h2>Расписание приемов</h2>
         <div id='calendar'></div>
     </div>
-    <div class="col-md-4">
-            @Html.Action("Create", "Visits", new { partial = true })
-            
-            
+    <div class="col-md-2">
+        
     </div>
 </div>
+
+@Html.Action("CreateOnTop", "Visits" )

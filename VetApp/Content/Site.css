@@ -22,3 +22,13 @@ select,
 textarea {
     max-width: 280px;
 }
+.modal-body input {
+    max-width: 100%;
+}
+.modal-body select {
+    max-width: 100%;
+}
+.modal-body textarea {
+    max-width: 100%;
+}
+

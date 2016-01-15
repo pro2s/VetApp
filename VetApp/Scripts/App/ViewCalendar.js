@@ -1,4 +1,27 @@
-﻿$(document).ready(function () {
+﻿function ClearError() {
+
+    $('.field-validation-error').parents('.form-group').removeClass('has-error');
+
+    $('.field-validation-error')
+        .removeClass('field-validation-error')
+        .addClass('field-validation-valid')
+        .html('');
+    
+    $('.input-validation-error')
+        .removeClass('input-validation-error')
+        .addClass('valid');
+}
+
+$(document).ready(function () {
+    
+    $('.input-validation-error').parents('.form-group').addClass('has-error');
+
+    if(document.getElementById('CreatOnTopError').value){
+        $('#CreateEvent').modal();
+    };
+	
+
+
     var currentLangCode = 'ru';
 
     $('#calendar').fullCalendar({
@@ -16,16 +39,31 @@
         eventLimit: true, // allow "more" link when too many events
         dayClick: function(date, jsEvent, view) {
 
-            //alert('Clicked on: ' + date.format());
-
-            //alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-
-            //alert('Current view: ' + view.name);
             $('#VisitDate').val(date.format());
-            // change the day's background color just for fun
-            
+            $('#CreateEvent').modal();
 
         },
+        eventSources: [
+
+        // your event source
+        {
+            url: '/api/visits',
+            type: 'GET',
+            data: {
+            //    custom_param1: 'something',
+            //    custom_param2: 'somethingelse'
+            },
+            error: function() {
+                alert('there was an error while fetching events!');
+            },
+            color: 'LightGray',   // a non-ajax option
+            borderColor: 'Silver',
+            textColor: 'black' // a non-ajax option
+        }
+
+        // any other sources...
+
+        ],
         events: [
             {
                 title: 'All Day Event',

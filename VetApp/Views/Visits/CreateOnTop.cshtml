@@ -1,0 +1,82 @@
+﻿@model VetApp.Models.Visit
+@{
+
+    Layout = null;
+}
+
+
+<!-- Modal -->
+<div class="modal fade" id="CreateEvent" tabindex="-1" role="dialog" aria-labelledby="CreateEventLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Запись на прием</h4>
+            </div>
+
+            @using (Html.BeginForm())
+            {
+                <input type="hidden" value="@ViewBag.Error" id="CreatOnTopError" />
+                <div class="modal-body">
+
+                    @Html.AntiForgeryToken()
+                    
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.VisitDate, htmlAttributes: new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.VisitDate, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.VisitDate, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label" })
+
+                        @Html.EnumDropDownListFor(model => model.Status, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.VisitTypeId, "VisitTypeId", htmlAttributes: new { @class = "control-label" })
+
+                        @Html.DropDownList("VisitTypeId", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.VisitTypeId, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.PetId, "PetId", htmlAttributes: new { @class = "control-label" })
+
+                        @Html.DropDownList("PetId", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.PetId, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.VetId, "VetId", htmlAttributes: new { @class = "control-label" })
+
+                        @Html.DropDownList("VetId", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.VetId, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ExaminationId, "ExaminationId", htmlAttributes: new { @class = "control-label" })
+
+                        @Html.DropDownList("ExaminationId", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ExaminationId, "", new { @class = "text-danger" })
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button onclick="ClearError()" type="reset" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
