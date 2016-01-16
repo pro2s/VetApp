@@ -1,0 +1,75 @@
+﻿@model IEnumerable<VetApp.Models.Examination>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Pet.NickName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Temperature)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pulse)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Weight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lenght)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hieght)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CoverState)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AtClinic)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pet.NickName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Temperature)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pulse)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Weight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lenght)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hieght)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CoverState)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AtClinic)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

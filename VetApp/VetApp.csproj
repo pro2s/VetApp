@@ -196,6 +196,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ExaminationsController.cs" />
     <Compile Include="Controllers\Pet\AnimalTypesController.cs" />
     <Compile Include="Controllers\Api\VisitsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -475,6 +476,11 @@
     <Content Include="Views\Visits\Edit.cshtml" />
     <Content Include="Views\Visits\Index.cshtml" />
     <Content Include="Views\Visits\CreateOnTop.cshtml" />
+    <Content Include="Views\Examinations\Create.cshtml" />
+    <Content Include="Views\Examinations\Delete.cshtml" />
+    <Content Include="Views\Examinations\Details.cshtml" />
+    <Content Include="Views\Examinations\Edit.cshtml" />
+    <Content Include="Views\Examinations\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
